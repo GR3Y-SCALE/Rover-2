@@ -53,7 +53,7 @@ void onRising2(void) {
 void onRising3(void) {
   processPin(3);
 }
-  
+
 void setup() {
   Serial.begin(57600);
 
@@ -96,10 +96,10 @@ long getWheelAngle(long position) {
   int servoAngle = 0;
   if (position >= channelCentrePosition + (deadZone / 2)) { // upper most deadzone
     servoAngle = map(position, channelCentrePosition + (deadZone / 2), channelTopPosition, 0, 180);
-    
+
   } else if (position <= channelCentrePosition - (deadZone / 2)) { // bottom most deadzone
     servoAngle = map(position, channelBottomPosition, channelCentrePosition - (deadZone / 2), 0, 180);
-    
+
   } else {
     servoAngle = 90; // the value will be within deadzone
   }
@@ -125,13 +125,15 @@ void setWheelAngle(long right, long left) {
   }
 }
 
+void setArmAngle(long right, long left) {
+
+}
 
 
 void loop() {
   if (debugging) {
     serialDebug(channelLength[0], channelLength[1], channelLength[2], channelLength[3]);
   }
-  
-  
+
+
 }
-  
