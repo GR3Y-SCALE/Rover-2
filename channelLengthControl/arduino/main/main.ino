@@ -6,8 +6,10 @@ volatile unsigned long risingStart[] = {0, 0, 0, 0};
 volatile long channelLength[] = {0, 0, 0, 0};
 
 const byte WHEEL_PIN[] = {2,3,4,5}; // 2,3 is right motor.4,5 is left motor
+const int WHEEL_TRIM[] = {0,0,0,0} // trim in degrees
 
 const byte ARM_PIN[] = {6,7,8,9}; // 6,7 is right servo. 8,9 is left motor
+const int ARM_TRIM[] = {0,0,0,0}
 
 bool debugging = false; // set true for debugging
 int deadZone = 200; // deadzone value to allow for less jitter on central stick position and stray motion.     (MIN)--------(_deadzone--CENTRE--deadzone_)--------(MAX)
@@ -118,15 +120,28 @@ int inverse(int angle) {
 
 void setWheelAngle(long right, long left) {
   for (int i = 0; i < 2; i++) {
-    servoWheel[i].write(getWheelAngle(right));
+    servoWheel[i].write(WHEEL_TRIM[i] + getWheelAngle(right));
   }
   for (int i = 2; i < 4; i++) {
-    servoWheel[i].write(inverse(getWheelAngle(left)));
+    servoWheel[i].write(WHEEL_TRIM[i] + inverse(getWheelAngle(left)));
   }
 }
 
-void setArmAngle(long right, long left) {
-
+void setArmAngle(long right,  long left) {
+  for (int i = 0; i < 2; i++) {
+    if (i % 2 != 0) {
+      servoArm[i].write(ARM_TRIM[i] + getArmAngle(right));
+    } else {
+      servoArm[i].write(ARM_TRIM[i] + inverse(getArmAngle(left)));
+    }
+  }
+  for (int i = 2; i < 4; i++) {
+    if (i % 2 != 0) {
+      servoArm[i].write(ARM_TRIM[i] + getArmAngle(left));
+    } else {
+      servoArm[i].write(ARM_TRIM[i] + inverse(getArmAngle(left)));
+    }
+  }
 }
 
 
@@ -134,6 +149,7 @@ void loop() {
   if (debugging) {
     serialDebug(channelLength[0], channelLength[1], channelLength[2], channelLength[3]);
   }
-
+setArmAngle(channelLength[0], channelLength[2]);
+setWheelAngle(channelLength[1], channelLength[3])
 
 }
