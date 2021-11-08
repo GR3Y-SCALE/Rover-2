@@ -1,2 +1,1 @@
-# SLAM Rover
-Implimenting SLAM for a Rover-2 style motion system
+# Omnidirectional Rover for outdoor terrain navigation
