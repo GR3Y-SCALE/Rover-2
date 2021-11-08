@@ -1,2 +1,2 @@
 # SLAM Rover
-This rover impliments SLAM with lidar to allow navigation
+Implimenting SLAM for a rover-style motion system
