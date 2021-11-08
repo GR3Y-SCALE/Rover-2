@@ -1,2 +1,2 @@
 # SLAM Rover
-Implimenting SLAM for a rover-style motion system
+Implimenting SLAM for a Rover-2 style motion system
