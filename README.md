@@ -2,8 +2,14 @@
 
 # Omnidirectional Rover for outdoor terrain navigation
 
-[video of it working](https://drive.google.com/file/d/1I9068cjXKc3nNlIpTnMtV5UrxhhRmIaJ/view?usp=sharing)
+## Video
 
-[documentation can be found here](https://github.com/GR3Y-SCALE/Rover-2/blob/main/document/rover-2-20211122.pdf)
+[Video of the rover working](https://drive.google.com/file/d/1I9068cjXKc3nNlIpTnMtV5UrxhhRmIaJ/view?usp=sharing)
 
-[code for the rover](https://github.com/GR3Y-SCALE/Rover-2/blob/main/main/main.ino)
+## Documentation
+
+[The document describing the function and concept of the rover](https://github.com/GR3Y-SCALE/Rover-2/blob/main/document/rover-2-20211122.pdf)
+
+## Code
+
+[Code that drives the rover](https://github.com/GR3Y-SCALE/Rover-2/blob/main/main/main.ino)
