@@ -1,3 +1,5 @@
+ <img src="https://github.com/GR3Y-SCALE/Rover-2/blob/main/src/orthographic_view.jpg" style="width:800px;height:500px;"> 
+
 # Omnidirectional Rover for outdoor terrain navigation
 
 [video of it working](https://drive.google.com/file/d/1I9068cjXKc3nNlIpTnMtV5UrxhhRmIaJ/view?usp=sharing)
